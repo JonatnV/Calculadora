@@ -1,14 +1,28 @@
 .h1{
     text-align: center;
 }
+p{
+    color: #CDCDCD;
+}
 #Todo{
     border: 2px solid #1F2358;
     margin-top: 10%;
+    background-color: #26185A;
 }
 input{
     border-radius: 15px;
     width: 30px;
+    background-color: #848484;
 }
-#pantalla{
+#operacion{
+    border-radius: 15px 15px 0px 0px;
+    text-align: left;
+}
+#resultado{
+    border-radius: 0px 0px 15px 15px;
+    text-align: right;
+}
+.pantalla{
     width: 100%;
+    background-color: #B9FFFC;
 }
