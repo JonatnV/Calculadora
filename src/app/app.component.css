@@ -3,4 +3,12 @@
 }
 #Todo{
     border: 2px solid #1F2358;
+    margin-top: 10%;
+}
+input{
+    border-radius: 15px;
+    width: 30px;
+}
+#pantalla{
+    width: 100%;
 }
