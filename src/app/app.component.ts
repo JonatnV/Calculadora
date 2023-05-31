@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +8,20 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Calculadora';
+  
+  COperacion: string ="";
+  CCalculo: string=""
+  agregarNum(numero: number) {
+  
+    this.COperacion +=numero.toString();
+  }
+  borrar(){
+    this.COperacion ="";
+  }
+  
+  
+  
 }
-let op: string = "";
-let res: number = 0;
-let a = document.getElementById("operacion")
+
+
 
