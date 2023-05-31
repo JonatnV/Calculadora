@@ -12,6 +12,42 @@ export class AppComponent {
   COperacion: string ="";
   CResultado: string ="";
   CCalculo:string ="";
+  Operaciones: string[]=[];
+  Resultados: string[]=[];
+  lista: number=0;
+
+  guardarOperacion(){
+    this.Operaciones.push(this.COperacion);
+    this.Resultados.push(eval(this.CCalculo))
+  }
+  siguienteOP(){
+    if(this.lista!=this.Operaciones.length)
+    {
+      this.lista=0;
+      this.COperacion=this.Operaciones[this.lista];
+      this.CResultado=this.Resultados[this.lista];
+    }
+    else if(this.lista+1 < this.Operaciones.length){
+      this.lista+=1;
+      this.COperacion=this.Operaciones[this.lista];
+      this.CResultado=this.Resultados[this.lista];
+    }
+  }
+  anteriorOP(){
+    if(this.lista!=this.Operaciones.length)
+    {
+      this.lista=this.Operaciones.length-1;
+      this.COperacion=this.Operaciones[this.lista];
+      this.CResultado=this.Resultados[this.lista];
+    }
+    else if(this.lista-1 !=-1 ){
+      this.lista-=1;
+      this.COperacion=this.Operaciones[this.lista];
+      this.CResultado=this.Resultados[this.lista];
+    }
+
+  }
+
   agregarNum(numero: number) {
   
     this.COperacion +=numero.toString();
@@ -59,9 +95,22 @@ export class AppComponent {
     this.CCalculo+="/100"
 
   }
+  agregarDec(){
+    this.COperacion+="."
+    this.CCalculo+="."
+  }
   operar(){
     
-    this.CResultado= eval(this.CCalculo);
+    try{
+        if(!isNaN(eval(this.CCalculo))){
+          
+          this.CResultado= eval(this.CCalculo);
+          this.guardarOperacion();
+        }
+    } catch(error){
+      this.COperacion="Syntax Error";
+      this.CResultado="[C]: Cancelar";
+    }
   }
   
   

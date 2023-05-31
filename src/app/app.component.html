@@ -9,8 +9,8 @@
                 <div class="col-sm-3"></div>
                 
                 <div id="screen" class="col-sm-12">
-                    <input type="text" name="introducir" readonly  class="pantalla" placeholder="INPUT" [(ngModel)]="COperacion" >
-                    <input type="number" name="introducir" readonly  class="pantalla" placeholder="OUTPUT" [(ngModel)]="CResultado">
+                    <input type="text" name="introducir" id="operacion" readonly  class="pantalla" placeholder="INPUT" [(ngModel)]="COperacion" >
+                    <input type="text" name="introducir" id="resultado" readonly  class="pantalla" placeholder="OUTPUT" [(ngModel)]="CResultado">
                 </div>
                 <div class="col-sm-3"></div>
                 </div>
@@ -22,17 +22,17 @@
                         <thead>
                             <tr>
                                 
-                                <th scope="col"><input type="button" value="H"></th>
+                                <th scope="col"><input type="button" (click)="anteriorOP()" value="<-"></th>
+                                <th scope="col"><input type="button" (click)="siguienteOP()" value="->"></th>
                                 <th scope="col"><input type="button" (click)="abrirPar()" value="("></th>
-                                <th scope="col"><input type="button" (click)="cerrarPar()" value=")"></th>
                                 <th scope="col"><input type="button" (click)="borrar()" value="C"></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <th scope="col"><input type="button" (click)="agregarPot2()" value="\(x^2)\ "></th>
+                                <th scope="col"><input type="button" (click)="cerrarPar()" value=")"></th>
+                                <th scope="col"><input type="button" (click)="agregarPot2()" value="x^2"></th>
                                 <th scope="col"><input type="button" (click)="agregarPot()" value="x^"></th>
-                                <th scope="col"><input type="button" (click)="agregarPorC()" value="% "></th>
                                 <th scope="col"><input type="button" (click)="agregarDiv()" value="÷"></th>
                             </tr>
                         </tbody>
@@ -62,9 +62,9 @@
                         </tbody>
                         <tbody>
                             <tr>
-                                <th scope="col"><input type="button" value="."></th>
+                                <th scope="col"><input type="button" (click)="agregarDec()" value="."></th>
                                 <th scope="col"><input type="button" (click)="agregarNum(0)" value="0"></th>
-                                <th scope="col"><input type="button" (click)="agregarNum(00)" value="00"></th>
+                                <th scope="col"><input type="button" (click)="agregarPorC()" value="% "></th>
                                 <th scope="col"><input type="button" (click)="operar()" value="="></th>
                             </tr>
                         </tbody>
